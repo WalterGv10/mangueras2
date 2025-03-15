@@ -1,0 +1,136 @@
+.productos-container {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Grid de productos */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Card de productos */
+.producto-card {
+  perspective: 1200px;
+  cursor: pointer;
+  width: 300px; /* Tamaño fijo */
+  height: 400px; /* Tamaño fijo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.producto-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+.producto-card:hover .producto-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Parte frontal de la tarjeta */
+.producto-card-front, .producto-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.producto-card-front {
+  background: white;
+}
+
+.producto-card-front img {
+  width: 80%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.producto-card-front h3 {
+  margin-top: 15px;
+  font-size: 1.4rem;
+  color: #0074CC;
+}
+
+/* Parte trasera de la tarjeta */
+.producto-card-back {
+  background: #0074CC;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.producto-card-back h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.producto-card-back p {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.4;
+  padding: 10px;
+  max-width: 90%;
+}
+
+/* Tarjeta Especial */
+.especial {
+  background: #FFD700;
+}
+
+.especial-front {
+  background: linear-gradient(135deg, #FFDD44, #FFD700);
+  color: black;
+}
+
+.especial-back {
+  background: #FF8800;
+  color: white;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .productos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .producto-card {
+    width: 280px;
+    height: 380px;
+  }
+}
+
+/* Tarjeta Especial */
+.especial-front {
+  background: linear-gradient(135deg, #004080, #0056B3); /* Azul industrial */
+  color: white;
+}
+
+.especial-back {
+  background: linear-gradient(135deg, #222831, #00ADB5); /* Negro con neón turquesa */
+  color: white;
+}
